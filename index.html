@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보처리방침 — GOKO</title>
+  <style>
+    :root {
+      --teal: #1D9E75;
+      --teal-light: #E1F5EE;
+      --gray-bg: #F8F8F6;
+      --gray-line: #EEEEE9;
+      --gray-mid: #888780;
+      --black: #1A1A1A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: var(--gray-bg);
+      color: var(--black);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--gray-line);
+      padding: 20px 24px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .logo { display: flex; align-items: center; gap: 8px; }
+    .logo-icon {
+      width: 32px; height: 32px; background: var(--teal);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 18px; height: 18px; }
+    .logo-text { font-size: 20px; font-weight: 800; color: var(--black); letter-spacing: -0.5px; }
+    .logo-sub { font-size: 12px; color: var(--gray-mid); margin-left: 4px; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .hero {
+      background: var(--teal);
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      color: #fff;
+    }
+    .hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .hero p { font-size: 14px; opacity: 0.85; line-height: 1.7; }
+    .hero .date-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 99px;
+      padding: 4px 12px;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    .toc {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--gray-line);
+    }
+    .toc h3 { font-size: 14px; color: var(--gray-mid); margin-bottom: 12px; font-weight: 600; letter-spacing: 0.05em; }
+    .toc ol { padding-left: 18px; }
+    .toc li { margin-bottom: 6px; }
+    .toc a { color: var(--teal); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .toc a:hover { text-decoration: underline; }
+
+    .section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 16px;
+      border: 1px solid var(--gray-line);
+    }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--gray-line);
+    }
+    .section-num {
+      width: 28px; height: 28px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: var(--teal);
+      flex-shrink: 0;
+    }
+    .section h2 { font-size: 17px; font-weight: 700; color: var(--black); }
+    .section h3 { font-size: 15px; font-weight: 700; margin: 18px 0 8px; color: var(--black); }
+    .section p { color: #333; margin-bottom: 12px; font-size: 14.5px; }
+    .section p:last-child { margin-bottom: 0; }
+
+    table {
+      width: 100%; border-collapse: collapse;
+      margin: 14px 0; font-size: 13.5px;
+    }
+    th {
+      background: var(--teal-light);
+      color: #085041;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      border: 1px solid #B2E0CE;
+    }
+    td {
+      padding: 10px 12px;
+      border: 1px solid var(--gray-line);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    tr:nth-child(even) td { background: var(--gray-bg); }
+
+    ul, ol { padding-left: 20px; margin: 10px 0; }
+    li { margin-bottom: 6px; font-size: 14.5px; color: #333; }
+
+    .highlight-box {
+      background: var(--teal-light);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: 14px;
+      color: #085041;
+    }
+    .warn-box {
+      background: #FFF3CD;
+      border-left: 4px solid #BA7517;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: 14px;
+      color: #633806;
+    }
+
+    .contact-card {
+      background: var(--gray-bg);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+    .contact-card p { margin-bottom: 6px !important; font-size: 14px !important; }
+    .contact-card strong { color: var(--teal); }
+
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--gray-mid);
+      font-size: 13px;
+      border-top: 1px solid var(--gray-line);
+      margin-top: 16px;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .container { padding: 24px 16px 60px; }
+      .hero { padding: 24px 20px; }
+      .section { padding: 20px; }
+      table { font-size: 12.5px; }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"/>
+        <polyline points="7 7 17 7 17 17"/>
+      </svg>
+    </div>
+    <span class="logo-text">GOKO</span>
+    <span class="logo-sub">개인정보처리방침</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>개인정보처리방침</h1>
+    <p>GOKO(이하 "회사")는 「개인정보 보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 관련 법령을 준수하며, 이용자의 개인정보를 소중히 보호합니다. 본 방침은 회사가 운영하는 외국인 구인구직 플랫폼 GOKO 앱 및 관련 서비스에 적용됩니다.</p>
+    <div class="date-badge">시행일: 2026년 6월 2일 &nbsp;|&nbsp; 최종 개정: 2026년 6월 2일</div>
+  </div>
+
+  <div class="toc">
+    <h3>목차</h3>
+    <ol>
+      <li><a href="#s1">개인정보의 처리 목적</a></li>
+      <li><a href="#s2">처리하는 개인정보 항목 및 수집 방법</a></li>
+      <li><a href="#s3">개인정보의 처리 및 보유 기간</a></li>
+      <li><a href="#s4">개인정보의 제3자 제공</a></li>
+      <li><a href="#s5">개인정보 처리 위탁</a></li>
+      <li><a href="#s6">정보주체의 권리·의무 및 행사 방법</a></li>
+      <li><a href="#s7">개인정보의 파기</a></li>
+      <li><a href="#s8">개인정보의 안전성 확보 조치</a></li>
+      <li><a href="#s9">자동 수집 장치 운영 (쿠키·앱 분석)</a></li>
+      <li><a href="#s10">민감정보 처리</a></li>
+      <li><a href="#s11">아동 개인정보 보호</a></li>
+      <li><a href="#s12">개인정보 보호책임자</a></li>
+      <li><a href="#s13">권익침해 구제 방법</a></li>
+      <li><a href="#s14">개인정보처리방침 변경</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>개인정보의 처리 목적</h2>
+    </div>
+    <p>회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리한 개인정보는 다음의 목적 이외의 용도로는 사용되지 않으며, 목적이 변경될 경우 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 것입니다.</p>
+    <table>
+      <tr><th>처리 목적</th><th>세부 내용</th></tr>
+      <tr><td>회원 가입 및 관리</td><td>회원제 서비스 제공, 본인 식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지, 각종 고지·통지</td></tr>
+      <tr><td>구인구직 서비스 제공</td><td>직업정보 제공, 이력서 등록·열람, 채용공고 등록·열람, 구직자-기업 간 채팅 서비스 제공</td></tr>
+      <tr><td>비자 적합성 확인</td><td>구직자의 비자 종류에 따른 취업 가능 업종 필터링, 법령상 취업 제한 정보 안내</td></tr>
+      <tr><td>구독 및 결제 관리</td><td>유료 서비스 이용 신청·제공, 요금 결제·정산</td></tr>
+      <tr><td>민원 처리</td><td>민원인 식별, 민원사항 확인, 처리결과 통보</td></tr>
+      <tr><td>서비스 개선 및 통계</td><td>신규 서비스 개발, 서비스 이용 현황 통계 분석</td></tr>
+      <tr><td>마케팅 및 광고 (동의 시)</td><td>이벤트·혜택 정보 발송, 맞춤형 공고 추천 (별도 동의한 경우에 한함)</td></tr>
+    </table>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>처리하는 개인정보 항목 및 수집 방법</h2>
+    </div>
+
+    <h3>① 구직자 (외국인 근로자)</h3>
+    <table>
+      <tr><th>구분</th><th>수집 항목</th><th>필수/선택</th></tr>
+      <tr>
+        <td>회원가입</td>
+        <td>이메일 주소, 비밀번호, 사용자 유형(구직자)</td>
+        <td>필수</td>
+      </tr>
+      <tr>
+        <td>이력서 등록</td>
+        <td>이름(여권 영문), 국적, 생년월일, 성별, 연락처, 거주 지역, 비자 종류, 비자 만료일, 외국인등록번호 앞 6자리, 구사 언어, 희망 업종, 희망 급여, 경력 사항, 보유 기술·자격증, 자기소개, 프로필 사진(선택)</td>
+        <td>일부 필수, 일부 선택</td>
+      </tr>
+      <tr>
+        <td>채팅 서비스</td>
+        <td>메시지 내용, 첨부 파일(이력서 등), 송수신 일시</td>
+        <td>서비스 이용 시 자동 수집</td>
+      </tr>
+      <tr>
+        <td>서비스 이용</td>
+        <td>접속 IP, 기기 정보, 앱 버전, 푸시 알림 토큰, 서비스 이용 기록</td>
+        <td>자동 수집</td>
+      </tr>
+    </table>
+
+    <h3>② 구인기업</h3>
+    <table>
+      <tr><th>구분</th><th>수집 항목</th><th>필수/선택</th></tr>
+      <tr>
+        <td>회원가입</td>
+        <td>이메일 주소, 비밀번호, 사용자 유형(기업)</td>
+        <td>필수</td>
+      </tr>
+      <tr>
+        <td>기업 프로필</td>
+        <td>기업명, 사업자등록번호, 업종, 사업장 주소, 담당자 이름, 담당자 연락처</td>
+        <td>필수</td>
+      </tr>
+      <tr>
+        <td>결제 정보</td>
+        <td>결제수단 정보(카드사 처리, 회사 미보유), 구독 이력</td>
+        <td>유료 서비스 이용 시</td>
+      </tr>
+      <tr>
+        <td>서비스 이용</td>
+        <td>접속 IP, 기기 정보, 앱 버전, 서비스 이용 기록</td>
+        <td>자동 수집</td>
+      </tr>
+    </table>
+
+    <h3>③ 개인정보 수집 방법</h3>
+    <ul>
+      <li>회원 가입 및 서비스 이용 과정에서 이용자 직접 입력</li>
+      <li>앱·웹 서비스 이용 과정에서 자동 생성 및 수집</li>
+      <li>고객센터 문의·상담 과정에서 수집</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>개인정보의 처리 및 보유 기간</h2>
+    </div>
+    <p>회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.</p>
+    <table>
+      <tr><th>항목</th><th>보유 기간</th><th>근거</th></tr>
+      <tr><td>회원 정보 (이메일, 유형 등)</td><td>회원 탈퇴 시까지</td><td>서비스 이용 계약</td></tr>
+      <tr><td>이력서 및 프로필 정보</td><td>회원 탈퇴 시까지 (또는 삭제 요청 시)</td><td>서비스 이용 계약</td></tr>
+      <tr><td>채용공고 정보</td><td>공고 만료 후 3년</td><td>직업안정법</td></tr>
+      <tr><td>채팅 메시지</td><td>발송일로부터 3년</td><td>서비스 이용 계약</td></tr>
+      <tr><td>결제 기록</td><td>5년</td><td>전자상거래법 제6조</td></tr>
+      <tr><td>소비자 불만·분쟁 처리</td><td>3년</td><td>전자상거래법 제6조</td></tr>
+      <tr><td>접속 로그 (IP, 이용 기록)</td><td>3개월</td><td>통신비밀보호법 제15조의2</td></tr>
+      <tr><td>광고·이벤트 동의 기록</td><td>동의 철회 시까지</td><td>정보통신망법</td></tr>
+    </table>
+    <div class="highlight-box">
+      회원 탈퇴 후에도 관련 법령에 따라 일정 기간 보관이 필요한 정보는 위 기간에 따라 별도 보관 후 파기합니다.
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>개인정보의 제3자 제공</h2>
+    </div>
+    <p>회사는 정보주체의 개인정보를 제1조(처리 목적)에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 「개인정보 보호법」 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.</p>
+
+    <h3>① 구직자의 이력서 제공 (구직자 직접 전송)</h3>
+    <div class="highlight-box">
+      GOKO는 <strong>직업정보제공사업자</strong>로서 이력서를 기업에 대행 전송하지 않습니다.<br>
+      구직자가 채팅 기능을 통해 직접 이력서를 전송할 경우에만 기업 담당자가 열람할 수 있습니다.
+    </div>
+    <table>
+      <tr><th>제공받는 자</th><th>제공 목적</th><th>제공 항목</th><th>보유 기간</th></tr>
+      <tr>
+        <td>구인기업 (이용자가 채팅으로 전송 시)</td>
+        <td>채용 검토</td>
+        <td>구직자가 선택하여 전송한 이력서 내용</td>
+        <td>채용 완료 또는 3년</td>
+      </tr>
+      <tr>
+        <td>토스페이먼츠(주)</td>
+        <td>결제 처리</td>
+        <td>주문정보, 결제금액 (카드정보는 직접 전달 안 함)</td>
+        <td>5년</td>
+      </tr>
+    </table>
+
+    <h3>② 법령에 따른 제공</h3>
+    <p>수사기관의 적법한 절차에 따른 요청, 법원의 명령 등 법령에 근거한 경우에 한하여 개인정보를 제공할 수 있습니다.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>개인정보 처리 위탁</h2>
+    </div>
+    <p>회사는 원활한 서비스 제공을 위하여 다음과 같이 개인정보 처리 업무를 위탁하고 있습니다.</p>
+    <table>
+      <tr><th>수탁사</th><th>위탁 업무</th><th>보유 및 이용 기간</th></tr>
+      <tr>
+        <td>Supabase Inc.</td>
+        <td>데이터베이스 저장 및 관리, 사용자 인증</td>
+        <td>서비스 이용 기간</td>
+      </tr>
+      <tr>
+        <td>Expo (Expo Technology, Inc.)</td>
+        <td>푸시 알림 전송 서비스</td>
+        <td>알림 발송 후 즉시 파기</td>
+      </tr>
+      <tr>
+        <td>토스페이먼츠(주)</td>
+        <td>결제 처리 및 정산</td>
+        <td>5년 (전자상거래법)</td>
+      </tr>
+    </table>
+    <p>회사는 위탁 계약 체결 시 「개인정보 보호법」 제26조에 따라 위탁업무 수행 목적 외 개인정보 처리 금지, 기술적·관리적 보호조치, 재위탁 제한, 수탁자에 대한 관리·감독, 손해배상 등 책임에 관한 사항을 계약서에 명시합니다.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>정보주체의 권리·의무 및 행사 방법</h2>
+    </div>
+    <p>정보주체(이용자)는 언제든지 다음과 같은 권리를 행사할 수 있습니다.</p>
+    <ul>
+      <li><strong>개인정보 열람 요구</strong>: 회사가 처리하는 본인의 개인정보 내용 확인</li>
+      <li><strong>오류 정정 요구</strong>: 개인정보가 잘못된 경우 수정 요청</li>
+      <li><strong>삭제 요구</strong>: 개인정보 처리 정지·삭제 요청 (단, 법령에서 보존 의무가 있는 경우 제외)</li>
+      <li><strong>처리 정지 요구</strong>: 개인정보 처리 중단 요청</li>
+      <li><strong>동의 철회</strong>: 수집·이용에 동의한 사항 언제든지 철회</li>
+    </ul>
+    <h3>행사 방법</h3>
+    <ul>
+      <li>앱 내 마이페이지 → 프로필 수정/탈퇴 기능 이용</li>
+      <li>개인정보 보호책임자에게 서면, 전자우편 등으로 요청</li>
+      <li>요청 접수 후 <strong>10일 이내</strong> 조치 결과 통보</li>
+    </ul>
+    <div class="warn-box">
+      정보주체는 개인정보의 정확성 유지 의무가 있으며, 부정확한 정보 입력으로 발생하는 문제의 책임은 정보주체에게 있습니다.
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>개인정보의 파기</h2>
+    </div>
+    <p>회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.</p>
+    <h3>파기 절차</h3>
+    <p>이용자가 입력한 정보는 목적 달성 후 별도 DB에 옮겨져(종이의 경우 별도 서류함) 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후 혹은 즉시 파기됩니다.</p>
+    <h3>파기 방법</h3>
+    <ul>
+      <li><strong>전자적 파일</strong>: 기록을 재생할 수 없는 기술적 방법(완전 삭제, 덮어쓰기)으로 파기</li>
+      <li><strong>종이 문서</strong>: 분쇄기로 분쇄하거나 소각</li>
+    </ul>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>개인정보의 안전성 확보 조치</h2>
+    </div>
+    <p>회사는 「개인정보 보호법」 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적·관리적·물리적 조치를 하고 있습니다.</p>
+    <table>
+      <tr><th>구분</th><th>조치 내용</th></tr>
+      <tr><td>관리적 조치</td><td>내부관리계획 수립·시행, 개인정보 취급 직원의 최소화 및 교육</td></tr>
+      <tr><td>기술적 조치</td><td>개인정보처리시스템 접근권한 관리, 접근통제시스템 설치, 고유식별정보 등 암호화, 보안프로그램 설치, HTTPS/SSL 통신 구간 암호화</td></tr>
+      <tr><td>데이터베이스 보안</td><td>Supabase Row Level Security(RLS) 적용으로 권한 없는 데이터 접근 차단</td></tr>
+      <tr><td>비밀번호 보안</td><td>bcrypt 알고리즘 적용 암호화 저장 (평문 저장 없음)</td></tr>
+      <tr><td>물리적 조치</td><td>전산실, 자료보관실 등 접근 통제</td></tr>
+    </table>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>자동 수집 장치 운영 (앱 분석)</h2>
+    </div>
+    <p>회사는 별도의 쿠키를 사용하지 않으나, 앱 서비스 품질 향상을 위해 다음과 같은 자동 수집을 운영합니다.</p>
+    <table>
+      <tr><th>항목</th><th>수집 내용</th><th>목적</th><th>거부 방법</th></tr>
+      <tr>
+        <td>앱 로그</td>
+        <td>접속 IP, 접속 시간, 화면 이동 기록</td>
+        <td>서비스 이용 통계, 오류 분석</td>
+        <td>회원 탈퇴</td>
+      </tr>
+      <tr>
+        <td>푸시 알림 토큰</td>
+        <td>기기 고유 알림 토큰</td>
+        <td>푸시 알림 발송</td>
+        <td>기기 알림 설정에서 거부 가능</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>민감정보 처리</h2>
+    </div>
+    <div class="warn-box">
+      <strong>중요 안내</strong>: 회사는 구직자의 국적, 비자 종류, 외국인등록번호를 수집합니다. 이 정보는 「개인정보 보호법」 제23조의 민감정보에 해당할 수 있으며, 회원 가입 및 이력서 등록 시 <strong>별도의 명시적 동의</strong>를 받아 처리합니다.
+    </div>
+    <table>
+      <tr><th>민감정보 항목</th><th>처리 목적</th><th>보유 기간</th></tr>
+      <tr>
+        <td>국적 (국가)</td>
+        <td>비자 유형에 따른 취업 가능 공고 필터링, 구인기업에 대한 구직자 정보 제공</td>
+        <td>회원 탈퇴 시까지</td>
+      </tr>
+      <tr>
+        <td>비자 종류 및 만료일</td>
+        <td>취업 가능 업종 확인 및 필터링, 법적 취업 적합성 안내</td>
+        <td>회원 탈퇴 시까지</td>
+      </tr>
+      <tr>
+        <td>외국인등록번호 앞 6자리</td>
+        <td>본인 확인 보조 수단 (선택 입력)</td>
+        <td>암호화 저장, 회원 탈퇴 시 즉시 파기</td>
+      </tr>
+    </table>
+    <p>외국인등록번호는 암호화하여 저장하며, 기업 채용담당자에게 직접 제공되지 않습니다.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>아동 개인정보 보호</h2>
+    </div>
+    <p>GOKO는 만 14세 미만 아동의 회원가입을 허용하지 않습니다. 서비스 가입 시 생년월일을 확인하여 만 14세 미만으로 확인된 경우 가입을 제한합니다. 만약 만 14세 미만 아동의 개인정보가 수집된 경우 즉시 삭제합니다.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>개인정보 보호책임자</h2>
+    </div>
+    <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+    <div class="contact-card">
+      <p>▶ <strong>개인정보 보호책임자</strong></p>
+      <p>성명: 김민우</p>
+      <p>직책: 대표</p>
+      <p>이메일: <strong>privacy@goko.kr</strong></p>
+      <p>운영시간: 평일 09:00 ~ 18:00 (공휴일 제외)</p>
+    </div>
+    <p style="margin-top:14px;">정보주체께서는 회사의 서비스를 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자에게 문의하실 수 있습니다. 회사는 정보주체의 문의에 대해 지체 없이 답변 및 처리해드릴 것입니다.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="section" id="s13">
+    <div class="section-header">
+      <div class="section-num">13</div>
+      <h2>권익침해 구제 방법</h2>
+    </div>
+    <p>정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다.</p>
+    <table>
+      <tr><th>기관</th><th>연락처</th><th>웹사이트</th></tr>
+      <tr>
+        <td>개인정보분쟁조정위원회</td>
+        <td>1833-6972</td>
+        <td>www.kopico.go.kr</td>
+      </tr>
+      <tr>
+        <td>개인정보침해신고센터 (한국인터넷진흥원)</td>
+        <td>국번없이 118</td>
+        <td>privacy.kisa.or.kr</td>
+      </tr>
+      <tr>
+        <td>대검찰청 사이버수사과</td>
+        <td>국번없이 1301</td>
+        <td>www.spo.go.kr</td>
+      </tr>
+      <tr>
+        <td>경찰청 사이버안전국</td>
+        <td>국번없이 182</td>
+        <td>cyberbureau.police.go.kr</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 14 -->
+  <div class="section" id="s14">
+    <div class="section-header">
+      <div class="section-num">14</div>
+      <h2>개인정보처리방침 변경</h2>
+    </div>
+    <p>본 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경이 있을 경우 변경사항의 시행 <strong>7일 이전</strong>부터 앱 공지사항 및 개인정보처리방침 페이지를 통하여 공지할 것입니다. 다만, 수집하는 개인정보 항목, 이용 목적의 변경 등 이용자 권리에 중요한 변경이 있을 경우에는 <strong>최소 30일 전</strong>에 공지합니다.</p>
+    <div class="contact-card">
+      <p>▶ <strong>버전 이력</strong></p>
+      <p>v1.0 — 2026년 6월 2일 최초 시행</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>GOKO</strong> — 외국인 구인구직 플랫폼</p>
+  <p style="margin-top:8px;">직업정보제공사업 신고번호: 신고 진행 중</p>
+  <p style="margin-top:8px; color: #b4b2a9;">본 개인정보처리방침은 「개인정보 보호법」 제30조, 「정보통신망법」 제27조의2에 따라 작성되었습니다.</p>
+  <p style="margin-top:16px;"><a href="mailto:privacy@goko.kr">privacy@goko.kr</a></p>
+</footer>
+
+</body>
+</html>
